@@ -4,20 +4,22 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.moez.customerservice.config.GlobalConfig;
 
 @RestController
+@RefreshScope
 public class ConfigTestController {
     @Value("${global.params.p1}")
     private int p1;
     @Value("${global.params.p2}")
     private int p2;
-    @Value("${global.params.x}")
+    @Value("${customer.params.x}")
     private int x;
-    @Value("${global.params.y}")
+    @Value("${customer.params.y}")
     private int y;
 
     @Autowired
